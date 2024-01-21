@@ -94,31 +94,31 @@ export default function Header() {
           color="neutral"
           aria-pressed="true"
           component="a"
-          href="/joy-ui/getting-started/templates/email/"
+          href="/about/"
           size="sm"
           sx={{ alignSelf: 'center' }}
         >
-          Email
+          About
         </Button>
         <Button
           variant="plain"
           color="neutral"
           component="a"
-          href="/joy-ui/getting-started/templates/team/"
+          href="/articles/"
           size="sm"
           sx={{ alignSelf: 'center' }}
         >
-          Team
+          Articles
         </Button>
         <Button
           variant="plain"
           color="neutral"
           component="a"
-          href="/joy-ui/getting-started/templates/files/"
+          href="/resume/"
           size="sm"
           sx={{ alignSelf: 'center' }}
         >
-          Files
+          Resume
         </Button>
       </Stack>
       <Box sx={{ display: { xs: 'inline-flex', sm: 'none' } }}>
@@ -131,7 +131,7 @@ export default function Header() {
           onClose={() => setOpen(false)}
         >
           <ModalClose />
-          <DialogTitle>Acme Co.</DialogTitle>
+          <DialogTitle>GBs Online Diary</DialogTitle>
           <Box sx={{ px: 1 }}>
             <Navigation />
           </Box>

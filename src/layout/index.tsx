@@ -9,11 +9,6 @@ function Root(props: BoxProps) {
       sx={[
         {
           display: 'grid',
-          gridTemplateColumns: {
-            xs: '1fr',
-            sm: 'minmax(64px, 200px) minmax(450px, 1fr)',
-            md: 'minmax(160px, 300px) minmax(800px, 1fr)',
-          },
           gridTemplateRows: '64px 1fr',
           minHeight: '100vh',
         },
