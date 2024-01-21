@@ -141,7 +141,7 @@ export default function Header() {
           sx={{ '--ButtonGroup-radius': '10px' }}
         >
           <Button
-            aria-pressed="true"
+            // aria-pressed="true"
             component="a"
             href="/about/"
             size="md"

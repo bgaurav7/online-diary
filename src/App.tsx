@@ -2,9 +2,29 @@ import CssBaseline from '@mui/joy/CssBaseline';
 import { CssVarsProvider } from '@mui/joy/styles';
 import * as React from 'react';
 
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
 import SimpleHeader from './components/SimpleHeader';
 import Layout from './layout';
 import ArticlePage from './pages/ArticlePage';
+import AboutPage from './pages/AboutPage';
+import ErrorPage from './pages/ErrorPage';
+
+const router = createBrowserRouter([
+  {
+      path: "/",
+      element: <AboutPage />,
+      errorElement: <ErrorPage />,
+  },
+  {
+    path: "/articles",
+    element: <ArticlePage />,
+    errorElement: <ErrorPage />,
+  }
+]);
 
 export default function OnlineDiary() {
   return (
@@ -25,7 +45,9 @@ export default function OnlineDiary() {
           <Navigation />
         </Layout.SideNav> */}
         <Layout.Page>
-          <ArticlePage />
+          <React.StrictMode>
+              <RouterProvider router={router} />
+          </React.StrictMode>
         </Layout.Page>
       </Layout.Root>
     </CssVarsProvider>
