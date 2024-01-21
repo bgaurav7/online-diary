@@ -143,7 +143,7 @@ export default function Header() {
           <Button
             // aria-pressed="true"
             component="a"
-            href="/about/"
+            href="/"
             size="md"
             sx={{ alignSelf: 'center' }}
           >

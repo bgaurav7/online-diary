@@ -9,14 +9,14 @@ export default function AboutPage() {
   return (
     <TwoSidedLayout>
       <Typography color="primary" fontSize="lg" fontWeight="lg">
-        The power to do more
+        Gaurav Bansal
       </Typography>
       <Typography
         level="h1"
         fontWeight="xl"
         fontSize="clamp(1.875rem, 1.3636rem + 2.1818vw, 3rem)"
       >
-        A large headlinerer about our product features & services
+        A large headlinerer about me and thing I do best
       </Typography>
       <Typography fontSize="lg" textColor="text.secondary" lineHeight="lg">
         A descriptive secondary text placeholder. Use it to explain your business

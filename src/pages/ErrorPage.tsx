@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <TwoSidedLayout>
       <Typography color="primary" fontSize="lg" fontWeight="lg">
-        The power to do more
+        Error Encountered
       </Typography>
       <Typography
         level="h1"
