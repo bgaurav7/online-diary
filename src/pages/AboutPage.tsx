@@ -22,11 +22,15 @@ export default function AboutPage() {
         A descriptive secondary text placeholder. Use it to explain your business
         offer better.
       </Typography>
-      <Button size="lg" endDecorator={<ArrowForward />}>
+      <Button 
+        component="a"
+        href="/articles/"
+        size="lg"
+        endDecorator={<ArrowForward />} >
         Articles
       </Button>
       <Typography>
-        Already a member? <Link fontWeight="lg">Sign in</Link>
+        Want to checkout my work? <Link fontWeight="lg">Articles</Link>
       </Typography>
     </TwoSidedLayout>
   );

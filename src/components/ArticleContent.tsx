@@ -232,6 +232,42 @@ export default function ArticleContent() {
         excited!
         <br />
         <br />
+        So, it seems we are getting there! Our trip is finally here. As you know, I
+        love Yosemite National Park, a lot of great climbers and explorers have made
+        history there, so I&apos;m very excited to bring you with me in this journey.
+        <br />
+        <br />
+        There are plenty of amazing things to see there, from internationally
+        recognized granite cliffs, waterfalls, clear streams, giant sequoia groves,
+        lakes, mountains, meadows, glaciers, and a lot o biological diversity. It is
+        amazing that almost 95 percent of the park is designated wilderness. Yosemite
+        is one of the largest and least fragmented habitat blocks in the Serra
+        Nevada, and the park supports a fantastic diversity of plants and animals.
+        <br />
+        <br />
+        I really hope you love coming along with me, we will have an awesome time!
+        I&apos;m attaching a few pics I took on the last time I went there-get
+        excited!
+        <br />
+        <br />
+        So, it seems we are getting there! Our trip is finally here. As you know, I
+        love Yosemite National Park, a lot of great climbers and explorers have made
+        history there, so I&apos;m very excited to bring you with me in this journey.
+        <br />
+        <br />
+        There are plenty of amazing things to see there, from internationally
+        recognized granite cliffs, waterfalls, clear streams, giant sequoia groves,
+        lakes, mountains, meadows, glaciers, and a lot o biological diversity. It is
+        amazing that almost 95 percent of the park is designated wilderness. Yosemite
+        is one of the largest and least fragmented habitat blocks in the Serra
+        Nevada, and the park supports a fantastic diversity of plants and animals.
+        <br />
+        <br />
+        I really hope you love coming along with me, we will have an awesome time!
+        I&apos;m attaching a few pics I took on the last time I went there-get
+        excited!
+        <br />
+        <br />
         See you soon, Alex Jonnold
       </Typography>
       <Divider />

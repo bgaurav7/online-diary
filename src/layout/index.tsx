@@ -84,36 +84,16 @@ function Header(props: BoxProps) {
   );
 }
 
-function SideNav(props: BoxProps) {
-  return (
-    <Box
-      component="nav"
-      className="Navigation"
-      {...props}
-      sx={[
-        {
-          p: 2,
-          bgcolor: 'background.surface',
-          borderRight: '1px solid',
-          borderColor: 'divider',
-          display: {
-            xs: 'none',
-            sm: 'initial',
-          },
-        },
-        ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
-      ]}
-    />
-  );
-}
-
 function Page(props: BoxProps) {
   return (
     <Box
       component="main"
       className="Page"
       {...props}
-      sx={[{ p: 0 }, ...(Array.isArray(props.sx) ? props.sx : [props.sx])]}
+      sx={[
+        { overflow: 'auto' },
+        ...(Array.isArray(props.sx) ? props.sx : [props.sx])
+      ]}
     />
   );
 }
@@ -122,6 +102,5 @@ export default {
   Root,
   SideDrawer,
   Header,
-  SideNav,
   Page,
 };

@@ -11,11 +11,12 @@ function Root(props: BoxProps) {
           display: 'grid',
           gridTemplateColumns: {
             xs: '1fr',
-            sm: 'minmax(64px, 200px) minmax(450px, 1fr)',
-            md: 'minmax(300px, 300px) minmax(500px, 1fr)',
+            sm: 'minmax(200px, 350px) minmax(400px, 1fr)',
+            md: 'minmax(350px, 400px) minmax(600px, 1fr)',
           },
           gridTemplateRows: '1fr',
           minHeight: '100%',
+          overflow: 'hidden'
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
       ]}
@@ -35,8 +36,10 @@ function SidePane(props: BoxProps) {
           borderColor: 'divider',
           display: {
             xs: 'none',
-            md: 'initial',
+            sm: 'initial',
           },
+          height: 'calc(100vh - 64px)',
+          overflow: 'auto'
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
       ]}
@@ -49,7 +52,16 @@ function Content(props: BoxProps) {
     <Box
       className="ArticlesContent"
       {...props}
-      sx={[{ p: 2 }, ...(Array.isArray(props.sx) ? props.sx : [props.sx])]}
+      sx={[{
+        p: {
+          xs: 2,
+          md: 4
+        },
+        height: 'calc(100vh - 64px)',
+        overflow: 'auto'
+        }, 
+        ...(Array.isArray(props.sx) ? props.sx : [props.sx])
+      ]}
     />
   );
 }

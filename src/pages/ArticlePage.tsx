@@ -3,34 +3,39 @@ import { FocusTrap } from '@mui/base/FocusTrap';
 import Box from '@mui/joy/Box';
 import Typography from '@mui/joy/Typography';
 import Button from '@mui/joy/Button';
+import Drawer from '@mui/joy/Drawer';
 
 import CreateRoundedIcon from '@mui/icons-material/CreateRounded';
 
 import ArticlesLayout from '../layout/ArticleLayout';
-import Mails from '../components/ArticleList';
-import EmailContent from '../components/ArticleContent';
+import ArticleList from '../components/ArticleList';
+import ArticleContent from '../components/ArticleContent';
 import WriteEmail from '../components/ArticleEdit';
+import Navigation from '../components/Navigation';
 
 export default function ArticlesPage() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   return (
     <ArticlesLayout.Root>
         <ArticlesLayout.SidePane>
+          <ArticleList />
+        </ArticlesLayout.SidePane>
+        {/* <ArticlesLayout.SidePane>
             <Box
-            sx={{
-                p: 2,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-            }}
+                sx={{
+                    p: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                }}
             >
             <Box sx={{ alignItems: 'center', gap: 1 }}>
                 <Typography level="title-lg" textColor="text.secondary">
-                My inbox
+                My Articles
                 </Typography>
                 <Typography level="title-sm" textColor="text.tertiary">
-                5 emails
+                5 articles
                 </Typography>
             </Box>
             <Button
@@ -45,10 +50,10 @@ export default function ArticlesPage() {
                 <WriteEmail open={open} onClose={() => setOpen(false)} />
             </FocusTrap>
             </Box>
-            <Mails />
-        </ArticlesLayout.SidePane>
+            <ArticleList />
+        </ArticlesLayout.SidePane> */}
         <ArticlesLayout.Content>
-            <EmailContent />
+            <ArticleContent />
         </ArticlesLayout.Content>
     </ArticlesLayout.Root>
   );
