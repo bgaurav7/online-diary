@@ -5,7 +5,7 @@ import Button from '@mui/joy/Button';
 import Drawer from '@mui/joy/Drawer';
 import Typography from '@mui/joy/Typography';
 
-import CreateRoundedIcon from '@mui/icons-material/CreateRounded';
+import ListIcon from '@mui/icons-material/List';
 
 import ArticleContent from '../components/ArticleContent';
 import ArticleList from '../components/ArticleList';
@@ -13,49 +13,18 @@ import ArticlesLayout from '../layout/ArticleLayout';
 
 export default function ArticlesPage() {
     const [open, setOpen] = React.useState(false);
-    const [activeIndex, setActiveIndex] = React.useState(1);
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    const [articleData, setArticleData] = React.useState({title: '', description: '', date: ''});
 
-    const handleIndexChange = (index: number) => {
+    const handleIndexChange = (index: number, item: any) => {
         setActiveIndex(index)
+        setArticleData(item)
+        setOpen(false)
     };
 
     return (
         <ArticlesLayout.Root>
             <ArticlesLayout.SidePane>
-                <Box
-                    sx={{
-                        p: 2,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                    }}
-                >
-                    <Box sx={{ alignItems: 'center', gap: 1 }}>
-                        <Typography level="title-lg" textColor="text.secondary">
-                        Current Article
-                        </Typography>
-                        <Typography level="title-sm" textColor="text.tertiary">
-                        ID: 1234
-                        </Typography>
-                    </Box>
-                    <Button
-                        size="sm"
-                        startDecorator={<CreateRoundedIcon />}
-                        onClick={() => setOpen(true)}
-                        sx={{
-                            ml: 'auto',
-                            display: {
-                                xs: 'flex',
-                                sm: 'none',
-                            },
-                        }}
-                    >
-                        Article List
-                    </Button>
-                    {/* <FocusTrap open={open} disableAutoFocus disableEnforceFocus>
-                        <WriteEmail open={open} onClose={() => setOpen(false)} />
-                    </FocusTrap> */}
-                </Box>
                 <Box
                     sx={{
                         p: 0,
@@ -79,6 +48,41 @@ export default function ArticlesPage() {
             <ArticlesLayout.Content>
                 <ArticleContent activeIndex={activeIndex} />
             </ArticlesLayout.Content>
+            <ArticlesLayout.BottomBar>
+                <Box
+                    sx={{
+                        p: 2,
+                        display: {
+                            xs: 'flex',
+                            sm: 'none',
+                        },
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        overflow: 'auto'
+                    }}
+                >
+                    <Box sx={{ alignItems: 'center', gap: 1 }}>
+                        <Typography level="title-lg" textColor="text.secondary">
+                        {articleData.title}
+                        </Typography>
+                        <Typography level="title-sm" textColor="text.tertiary">
+                        {articleData.date}
+                        </Typography>
+                    </Box>
+                    <Button
+                        size="sm"
+                        onClick={() => setOpen(true)}
+                        sx={{
+                            ml: 'auto',
+                        }}
+                    >
+                        <ListIcon />
+                    </Button>
+                    {/* <FocusTrap open={open} disableAutoFocus disableEnforceFocus>
+                        <WriteEmail open={open} onClose={() => setOpen(false)} />
+                    </FocusTrap> */}
+                </Box>
+            </ArticlesLayout.BottomBar>
         </ArticlesLayout.Root>
     );
 }

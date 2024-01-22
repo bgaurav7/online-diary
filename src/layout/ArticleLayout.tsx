@@ -48,6 +48,32 @@ function SidePane(props: BoxProps) {
   );
 }
 
+function BottomBar(props: BoxProps) {
+  return (
+    <Box
+      className="ArticlesBottomBar"
+      {...props}
+      sx={[
+        {
+          bgcolor: 'background.surface',
+          borderTop: '1px solid',
+          borderBottom: '1px solid',
+          borderColor: 'divider',
+          display: {
+            xs: 'initial',
+            sm: 'none',
+          },
+          position: 'sticky',
+          height: '76px',
+          bottom: 0,
+          zIndex: 1100,
+        },
+        ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
+      ]}
+    />
+  );
+}
+
 function Content(props: BoxProps) {
   return (
     <Box
@@ -58,9 +84,12 @@ function Content(props: BoxProps) {
           xs: 2,
           md: 4
         },
-        height: 'calc(100vh - 64px)',
+        height: {
+          xs: 'calc(100vh - 64px - 76px)',
+          sm: 'calc(100vh - 64px)',
+        },
         overflow: 'auto'
-        }, 
+        },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx])
       ]}
     />
@@ -70,5 +99,6 @@ function Content(props: BoxProps) {
 export default {
   Root,
   SidePane,
+  BottomBar,
   Content,
 };

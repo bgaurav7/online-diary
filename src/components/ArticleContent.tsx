@@ -9,31 +9,13 @@ import CardOverflow from '@mui/joy/CardOverflow';
 import Chip from '@mui/joy/Chip';
 import Divider from '@mui/joy/Divider';
 import Sheet from '@mui/joy/Sheet';
-import Snackbar from '@mui/joy/Snackbar';
 import Tooltip from '@mui/joy/Tooltip';
 import Typography from '@mui/joy/Typography';
 
-import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
-import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import BookIcon from '@mui/icons-material/Book';
 import FolderIcon from '@mui/icons-material/Folder';
-import ForwardToInboxRoundedIcon from '@mui/icons-material/ForwardToInboxRounded';
-import ReplyRoundedIcon from '@mui/icons-material/ReplyRounded';
 
 export default function ArticleContent({activeIndex = 0}) {
-  const [open, setOpen] = React.useState([false, false, false]);
-
-  const handleSnackbarOpen = (index: number) => {
-    const updatedOpen = [...open];
-    updatedOpen[index] = true;
-    setOpen(updatedOpen);
-  };
-
-  const handleSnackbarClose = (index: number) => {
-    const updatedOpen = [...open];
-    updatedOpen[index] = false;
-    setOpen(updatedOpen);
-  };
-
   return (
     <Sheet
       variant="outlined"
@@ -74,86 +56,13 @@ export default function ArticleContent({activeIndex = 0}) {
             size="sm"
             variant="plain"
             color="neutral"
-            startDecorator={<ReplyRoundedIcon />}
-            onClick={() => handleSnackbarOpen(0)}
+            startDecorator={<BookIcon />}
+            component="a"
+            href="https://medium.com"
+            target="_blank"
           >
-            Reply
+            Medium
           </Button>
-          <Snackbar
-            color="success"
-            open={open[0]}
-            onClose={() => handleSnackbarClose(0)}
-            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-            startDecorator={<CheckCircleRoundedIcon />}
-            endDecorator={
-              <Button
-                onClick={() => handleSnackbarClose(0)}
-                size="sm"
-                variant="soft"
-                color="neutral"
-              >
-                Dismiss
-              </Button>
-            }
-          >
-            Your message has been sent.
-          </Snackbar>
-          <Button
-            size="sm"
-            variant="plain"
-            color="neutral"
-            startDecorator={<ForwardToInboxRoundedIcon />}
-            onClick={() => handleSnackbarOpen(1)}
-          >
-            Forward
-          </Button>
-          <Snackbar
-            color="success"
-            open={open[1]}
-            onClose={() => handleSnackbarClose(1)}
-            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-            startDecorator={<CheckCircleRoundedIcon />}
-            endDecorator={
-              <Button
-                onClick={() => handleSnackbarClose(1)}
-                size="sm"
-                variant="soft"
-                color="neutral"
-              >
-                Dismiss
-              </Button>
-            }
-          >
-            Your message has been forwarded.
-          </Snackbar>
-          <Button
-            size="sm"
-            variant="plain"
-            color="danger"
-            startDecorator={<DeleteRoundedIcon />}
-            onClick={() => handleSnackbarOpen(2)}
-          >
-            Delete
-          </Button>
-          <Snackbar
-            color="danger"
-            open={open[2]}
-            onClose={() => handleSnackbarClose(2)}
-            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-            startDecorator={<CheckCircleRoundedIcon />}
-            endDecorator={
-              <Button
-                onClick={() => handleSnackbarClose(2)}
-                size="sm"
-                variant="soft"
-                color="neutral"
-              >
-                Dismiss
-              </Button>
-            }
-          >
-            Your message has been deleted.
-          </Snackbar>
         </Box>
       </Box>
       <Divider sx={{ mt: 2 }} />

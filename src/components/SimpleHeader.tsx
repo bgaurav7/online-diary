@@ -54,7 +54,6 @@ function ColorSchemeToggle() {
 }
 
 export default function Header() {
-  const [open, setOpen] = React.useState(false);
   return (
     <Box
       sx={{

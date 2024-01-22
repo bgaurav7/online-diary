@@ -100,7 +100,11 @@ const data = [
   },
 ];
 
-export default function ArticleList({activeIndex = 0, indexChange = (index: number) => {}}) {
+export default function ArticleList({activeIndex = 0, indexChange = (index: number, item: any) => {}}) {
+  React.useEffect(() => {
+    indexChange(activeIndex, data[activeIndex])
+  }, []);
+
   return (
     <List
       sx={{
@@ -115,7 +119,7 @@ export default function ArticleList({activeIndex = 0, indexChange = (index: numb
           <ListItem>
             <ListItemButton
               onClick={() => {
-                indexChange(index)
+                indexChange(index, item)
               }}
               {...(index === activeIndex && {
                 selected: true,
