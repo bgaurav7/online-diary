@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import Avatar from '@mui/joy/Avatar';
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
@@ -12,10 +14,9 @@ import Stack from '@mui/joy/Stack';
 import Tooltip from '@mui/joy/Tooltip';
 import Typography from '@mui/joy/Typography';
 import { useColorScheme } from '@mui/joy/styles';
-import * as React from 'react';
 
-import BookRoundedIcon from '@mui/icons-material/BookRounded';
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
@@ -185,7 +186,7 @@ export default function Header() {
             target="_blank"
             sx={{ alignSelf: 'center' }}
           >
-            <BookRoundedIcon />
+            <GitHubIcon />
           </IconButton>
         </Tooltip>
         <ColorSchemeToggle />

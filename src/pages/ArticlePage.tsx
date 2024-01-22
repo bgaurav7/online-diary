@@ -1,60 +1,84 @@
 import * as React from 'react';
-import { FocusTrap } from '@mui/base/FocusTrap';
+
 import Box from '@mui/joy/Box';
-import Typography from '@mui/joy/Typography';
 import Button from '@mui/joy/Button';
 import Drawer from '@mui/joy/Drawer';
+import Typography from '@mui/joy/Typography';
 
 import CreateRoundedIcon from '@mui/icons-material/CreateRounded';
 
-import ArticlesLayout from '../layout/ArticleLayout';
-import ArticleList from '../components/ArticleList';
 import ArticleContent from '../components/ArticleContent';
-import WriteEmail from '../components/ArticleEdit';
-import Navigation from '../components/Navigation';
+import ArticleList from '../components/ArticleList';
+import ArticlesLayout from '../layout/ArticleLayout';
 
 export default function ArticlesPage() {
-  const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
+    const [activeIndex, setActiveIndex] = React.useState(1);
 
-  return (
-    <ArticlesLayout.Root>
-        <ArticlesLayout.SidePane>
-          <ArticleList />
-        </ArticlesLayout.SidePane>
-        {/* <ArticlesLayout.SidePane>
-            <Box
-                sx={{
-                    p: 2,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                }}
-            >
-            <Box sx={{ alignItems: 'center', gap: 1 }}>
-                <Typography level="title-lg" textColor="text.secondary">
-                My Articles
-                </Typography>
-                <Typography level="title-sm" textColor="text.tertiary">
-                5 articles
-                </Typography>
-            </Box>
-            <Button
-                size="sm"
-                startDecorator={<CreateRoundedIcon />}
-                onClick={() => setOpen(true)}
-                sx={{ ml: 'auto' }}
-            >
-                Compose email
-            </Button>
-            <FocusTrap open={open} disableAutoFocus disableEnforceFocus>
-                <WriteEmail open={open} onClose={() => setOpen(false)} />
-            </FocusTrap>
-            </Box>
-            <ArticleList />
-        </ArticlesLayout.SidePane> */}
-        <ArticlesLayout.Content>
-            <ArticleContent />
-        </ArticlesLayout.Content>
-    </ArticlesLayout.Root>
-  );
+    const handleIndexChange = (index: number) => {
+        setActiveIndex(index)
+    };
+
+    return (
+        <ArticlesLayout.Root>
+            <ArticlesLayout.SidePane>
+                <Box
+                    sx={{
+                        p: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    <Box sx={{ alignItems: 'center', gap: 1 }}>
+                        <Typography level="title-lg" textColor="text.secondary">
+                        Current Article
+                        </Typography>
+                        <Typography level="title-sm" textColor="text.tertiary">
+                        ID: 1234
+                        </Typography>
+                    </Box>
+                    <Button
+                        size="sm"
+                        startDecorator={<CreateRoundedIcon />}
+                        onClick={() => setOpen(true)}
+                        sx={{
+                            ml: 'auto',
+                            display: {
+                                xs: 'flex',
+                                sm: 'none',
+                            },
+                        }}
+                    >
+                        Article List
+                    </Button>
+                    {/* <FocusTrap open={open} disableAutoFocus disableEnforceFocus>
+                        <WriteEmail open={open} onClose={() => setOpen(false)} />
+                    </FocusTrap> */}
+                </Box>
+                <Box
+                    sx={{
+                        p: 0,
+                        display: {
+                            xs: 'none',
+                            sm: 'flex',
+                        },
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    <ArticleList activeIndex={activeIndex} indexChange={handleIndexChange} />
+                </Box>
+                <Drawer
+                    open={open}
+                    onClose={() => setOpen(false)}
+                >
+                    <ArticleList activeIndex={activeIndex} indexChange={handleIndexChange} />
+                </Drawer>
+            </ArticlesLayout.SidePane>
+            <ArticlesLayout.Content>
+                <ArticleContent activeIndex={activeIndex} />
+            </ArticlesLayout.Content>
+        </ArticlesLayout.Root>
+    );
 }

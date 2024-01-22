@@ -16,11 +16,10 @@ export default function AboutPage() {
         fontWeight="xl"
         fontSize="clamp(1.875rem, 1.3636rem + 2.1818vw, 3rem)"
       >
-        A large headlinerer about me and thing I do best
+        Just give me a dream and I will code it.
       </Typography>
       <Typography fontSize="lg" textColor="text.secondary" lineHeight="lg">
-        A descriptive secondary text placeholder. Use it to explain your business
-        offer better.
+        At JioTesseract, we are committed to democratizing mixed reality by providing developers with the tools they need to create faster and more efficient mixed reality experiences. With my expertise in full-stack web and Android development, as well as my passion for machine learning and image processing, I strive to drive innovation in the field and make mixed reality accessible to all.
       </Typography>
       <Button 
         component="a"
@@ -30,7 +29,7 @@ export default function AboutPage() {
         Articles
       </Button>
       <Typography>
-        Want to checkout my work? <Link fontWeight="lg">Articles</Link>
+        Want to reach out? <Link fontWeight="lg">Email</Link>
       </Typography>
     </TwoSidedLayout>
   );

@@ -1,24 +1,25 @@
 import * as React from 'react';
+
+import AspectRatio from '@mui/joy/AspectRatio';
+import Avatar from '@mui/joy/Avatar';
 import Box from '@mui/joy/Box';
-import Chip from '@mui/joy/Chip';
+import Button from '@mui/joy/Button';
 import Card from '@mui/joy/Card';
 import CardOverflow from '@mui/joy/CardOverflow';
-import Sheet from '@mui/joy/Sheet';
-import Typography from '@mui/joy/Typography';
-import Button from '@mui/joy/Button';
-import Snackbar from '@mui/joy/Snackbar';
-import AspectRatio from '@mui/joy/AspectRatio';
+import Chip from '@mui/joy/Chip';
 import Divider from '@mui/joy/Divider';
-import Avatar from '@mui/joy/Avatar';
+import Sheet from '@mui/joy/Sheet';
+import Snackbar from '@mui/joy/Snackbar';
 import Tooltip from '@mui/joy/Tooltip';
+import Typography from '@mui/joy/Typography';
 
-import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
-import ForwardToInboxRoundedIcon from '@mui/icons-material/ForwardToInboxRounded';
-import FolderIcon from '@mui/icons-material/Folder';
-import ReplyRoundedIcon from '@mui/icons-material/ReplyRounded';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import FolderIcon from '@mui/icons-material/Folder';
+import ForwardToInboxRoundedIcon from '@mui/icons-material/ForwardToInboxRounded';
+import ReplyRoundedIcon from '@mui/icons-material/ReplyRounded';
 
-export default function ArticleContent() {
+export default function ArticleContent({activeIndex = 0}) {
   const [open, setOpen] = React.useState([false, false, false]);
 
   const handleSnackbarOpen = (index: number) => {
@@ -59,7 +60,7 @@ export default function ArticleContent() {
           />
           <Box sx={{ ml: 2 }}>
             <Typography level="title-sm" textColor="text.primary" mb={0.5}>
-              Alex Jonnold
+              Alex Jonnold {activeIndex}
             </Typography>
             <Typography level="body-xs" textColor="text.tertiary">
               21 Oct 2022

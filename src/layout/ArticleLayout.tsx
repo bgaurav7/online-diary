@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Box, { BoxProps } from '@mui/joy/Box';
 
 function Root(props: BoxProps) {
@@ -33,12 +34,12 @@ function SidePane(props: BoxProps) {
         {
           bgcolor: 'background.surface',
           borderRight: '1px solid',
+          borderBottom: '1px solid',
           borderColor: 'divider',
-          display: {
-            xs: 'none',
-            sm: 'initial',
+          display: 'initial',
+          height: {
+            sm: 'calc(100vh - 64px)'
           },
-          height: 'calc(100vh - 64px)',
           overflow: 'auto'
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
