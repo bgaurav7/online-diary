@@ -181,7 +181,7 @@ export default function Header() {
             variant="plain"
             color="neutral"
             component="a"
-            href="https://github.com"
+            href="https://github.com/bgaurav7/online-diary"
             target="_blank"
             sx={{ alignSelf: 'center' }}
           >
