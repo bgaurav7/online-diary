@@ -1,8 +1,9 @@
 import * as React from 'react';
+
+import ArrowForward from '@mui/icons-material/ArrowForward';
 import Button from '@mui/joy/Button';
 import Link from '@mui/joy/Link';
 import Typography from '@mui/joy/Typography';
-import ArrowForward from '@mui/icons-material/ArrowForward';
 import TwoSidedLayout from '../components/TwoSidedLayout';
 
 export default function AboutPage() {

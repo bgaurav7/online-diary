@@ -11,6 +11,7 @@ import SimpleHeader from './components/SimpleHeader';
 import Layout from './layout';
 import ArticlePage from './pages/ArticlePage';
 import AboutPage from './pages/AboutPage';
+import ResumePage from './pages/ResumePage';
 import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
       path: "/articles/:articleId",
       element: <ArticlePage />,
     }]
+  },
+  {
+    path: "/resume",
+    element: <ResumePage />,
+    errorElement: <ErrorPage />
   }
 ]);
 

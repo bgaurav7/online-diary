@@ -4,23 +4,24 @@ import Avatar from '@mui/joy/Avatar';
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 import ButtonGroup from '@mui/joy/ButtonGroup';
+import Card from '@mui/joy/Card';
+import CardContent from '@mui/joy/CardContent';
+import Chip from '@mui/joy/Chip';
 import Dropdown from '@mui/joy/Dropdown';
 import IconButton from '@mui/joy/IconButton';
-import ListDivider from '@mui/joy/ListDivider';
 import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
-import MenuItem from '@mui/joy/MenuItem';
 import Stack from '@mui/joy/Stack';
 import Tooltip from '@mui/joy/Tooltip';
 import Typography from '@mui/joy/Typography';
 import { useColorScheme } from '@mui/joy/styles';
 
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
-import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
-import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
+import XIcon from '@mui/icons-material/X';
 
 function ColorSchemeToggle() {
   const { mode, setMode } = useColorScheme();
@@ -53,6 +54,69 @@ function ColorSchemeToggle() {
   );
 }
 
+function BioCard() {
+  return (
+    <Card
+      sx={{
+        width: 320,
+        maxWidth: '100%',
+        boxShadow: 'lg',
+      }}
+    >
+      <CardContent sx={{ alignItems: 'center', textAlign: 'center' }}>
+        <Avatar src="/assets/images/me-square.jpg" sx={{ '--Avatar-size': '4rem' }} />
+        <Chip
+          size="sm"
+          variant="soft"
+          color="primary"
+          sx={{
+            mt: -1,
+            mb: 1,
+            border: '3px solid',
+            borderColor: 'background.surface',
+          }}
+        >
+          @bgaurav7
+        </Chip>
+        <Typography level="title-lg">Gaurav Bansal</Typography>
+        <Typography level="body-sm" sx={{ maxWidth: '24ch' }}>
+          Hello, this is my bio and I am a PRO member of MUI. I am a developer and I
+          love to code.
+        </Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 2,
+            mt: 2,
+            '& > button': { borderRadius: '2rem' },
+          }}
+        >
+          <IconButton size="sm" variant="plain" color="neutral" component="a" target="_blank" href="https://www.facebook.com/bgaurav7">
+            <FacebookRoundedIcon />
+          </IconButton>
+          <IconButton size="sm" variant="plain" color="neutral" component="a" target="_blank" href="https://www.instagram.com/bgaurav7">
+            <InstagramIcon />
+          </IconButton>
+          <IconButton size="sm" variant="plain" color="neutral" component="a" target="_blank" href="https://twitter.com/bgaurav7_">
+            <XIcon />
+          </IconButton>
+          <IconButton size="sm" variant="plain" color="neutral" component="a" target="_blank" href="https://github.com/bgaurav7">
+            <GitHubIcon />
+          </IconButton>
+        </Box>
+      </CardContent>
+      {/* <CardOverflow sx={{ bgcolor: 'background.level1' }}>
+        <CardActions buttonFlex="1">
+          <ButtonGroup variant="outlined" sx={{ bgcolor: 'background.surface' }}>
+            <Button>Message</Button>
+            <Button>Connect</Button>
+          </ButtonGroup>
+        </CardActions>
+      </CardOverflow> */}
+    </Card>
+  );
+}
+
 export default function Header() {
   return (
     <Box
@@ -76,8 +140,8 @@ export default function Header() {
             sx={{ maxWidth: '32px', maxHeight: '32px', borderRadius: '9999999px' }}
           >
             <Avatar
-              src="https://i.pravatar.cc/40?img=2"
-              srcSet="https://i.pravatar.cc/80?img=2"
+              src="/assets/images/me-square.jpg"
+              srcSet="/assets/images/me-square.jpg"
               sx={{ maxWidth: '32px', maxHeight: '32px' }}
             />
           </MenuButton>
@@ -91,49 +155,7 @@ export default function Header() {
               '--ListItem-radius': 'var(--joy-radius-sm)',
             }}
           >
-            <MenuItem>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <Avatar
-                  src="https://i.pravatar.cc/40?img=2"
-                  srcSet="https://i.pravatar.cc/80?img=2"
-                  sx={{ borderRadius: '50%' }}
-                />
-                <Box sx={{ ml: 1.5 }}>
-                  <Typography level="title-sm" textColor="text.primary">
-                    Gaurav Bansal
-                  </Typography>
-                  <Typography level="body-xs" textColor="text.tertiary">
-                    me@bgaurav.in
-                  </Typography>
-                </Box>
-              </Box>
-            </MenuItem>
-            <ListDivider />
-            <MenuItem>
-              <HelpRoundedIcon />
-              Help
-            </MenuItem>
-            <MenuItem>
-              <SettingsRoundedIcon />
-              Settings
-            </MenuItem>
-            <ListDivider />
-            <MenuItem component="a" href="/blog/first-look-at-joy/">
-              GBs Online Diary
-              <OpenInNewRoundedIcon />
-            </MenuItem>
-            <MenuItem
-              component="a"
-              href="https://github.com/mui/material-ui/tree/master/docs/data/joy/getting-started/templates/email"
-            >
-              Sourcecode
-              <OpenInNewRoundedIcon />
-            </MenuItem>
+            <BioCard />
           </Menu>
         </Dropdown>
         <ButtonGroup
