@@ -1,33 +1,36 @@
 import * as React from 'react';
-import Button from '@mui/joy/Button';
-import Link from '@mui/joy/Link';
-import Typography from '@mui/joy/Typography';
-import ArrowForward from '@mui/icons-material/ArrowForward';
-import TwoSidedLayout from '../components/TwoSidedLayout';
 
-export default function AboutPage() {
+import ArrowForward from '@mui/icons-material/ArrowForward';
+import Button from '@mui/joy/Button';
+import Typography from '@mui/joy/Typography';
+import { useRouteError } from "react-router-dom";
+import OneSidedLayout from '../components/OneSidedLayout';
+
+export default function ErrorPage() {
+  const error = useRouteError() as Error;
+
   return (
-    <TwoSidedLayout>
+    <OneSidedLayout>
       <Typography color="primary" fontSize="lg" fontWeight="lg">
-        Error Encountered
+        Oops!
       </Typography>
       <Typography
         level="h1"
         fontWeight="xl"
         fontSize="clamp(1.875rem, 1.3636rem + 2.1818vw, 3rem)"
       >
-        A large headlinerer about our product features & services
+        Sorry, an unexpected error has occurred.
       </Typography>
       <Typography fontSize="lg" textColor="text.secondary" lineHeight="lg">
-        A descriptive secondary text placeholder. Use it to explain your business
-        offer better.
+        {error.message}
       </Typography>
-      <Button size="lg" endDecorator={<ArrowForward />}>
-        Articles
+      <Button 
+        component="a"
+        href="/"
+        size="lg"
+        endDecorator={<ArrowForward />}>
+        Home
       </Button>
-      <Typography>
-        Already a member? <Link fontWeight="lg">Sign in</Link>
-      </Typography>
-    </TwoSidedLayout>
+    </OneSidedLayout>
   );
 }

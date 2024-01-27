@@ -9,24 +9,27 @@ import Typography from '@mui/joy/Typography';
 
 import { JoyuiMarkdown } from 'joyui-markdown';
 import { Highlight, themes } from 'prism-react-renderer';
+
 import { articlesContent } from '../services/ApiService';
 
-export default function ArticleContent({activeIndex = 0}) {
+export default function ArticleContent({title = "Loading...", author = "Loading...", contentLink = ""}) {
   const [articleContent, setArticleContent] = React.useState("# Loading...");
 
   async function refreshArticleContent() {
     try {
-      const result = await articlesContent();
-      console.error('Article Content:', result);
+      const result = await articlesContent(contentLink);
+      console.info('Article Content:', result);
       setArticleContent(result);
     } catch (error) {
       console.error('Error fetching data:', error);
+      setArticleContent("# Error Loading Article");
     }
   }
 
   React.useEffect(() => {
+    console.info('useEffect:');
     refreshArticleContent()
-  }, []);
+  }, [contentLink]);
 
   return (
     <Sheet
@@ -45,7 +48,7 @@ export default function ArticleContent({activeIndex = 0}) {
           level="h2"
           textColor="text.primary"
         >
-          Details for our Yosemite Park hike
+          {title}
         </Typography>
         <Box
           sx={{
@@ -66,7 +69,7 @@ export default function ArticleContent({activeIndex = 0}) {
             </Typography>
             <Tooltip size="sm" title="Copy article" variant="outlined">
               <Chip size="sm" variant="soft" color="primary" onClick={() => {}}>
-                Gaurav Bansal
+                {author}
               </Chip>
             </Tooltip>
           </div>

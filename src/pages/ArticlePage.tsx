@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useParams } from "react-router-dom";
 
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
@@ -10,17 +11,40 @@ import ListIcon from '@mui/icons-material/List';
 import ArticleContent from '../components/ArticleContent';
 import ArticleList from '../components/ArticleList';
 import ArticlesLayout from '../layout/ArticleLayout';
+import { ArticleInfo } from "../models/ArticleInfo";
+import { articlesInfoList } from "../services/ApiService";
 
 export default function ArticlesPage() {
-    const [open, setOpen] = React.useState(false);
-    const [activeIndex, setActiveIndex] = React.useState(0);
-    const [articleData, setArticleData] = React.useState({title: '', description: '', date: ''});
+    const { articleId } = useParams();
 
-    const handleIndexChange = (index: number, item: any) => {
+    const [open, setOpen] = React.useState(false);
+
+    const [articles, setArticles] = React.useState<ArticleInfo[]>([]);
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    const [articleData, setArticleData] = React.useState<ArticleInfo>();
+
+    const handleIndexChange = (index: number, item: ArticleInfo) => {
         setActiveIndex(index)
         setArticleData(item)
         setOpen(false)
+
+        console.info('Article index:', index, articleData);
     };
+
+    async function refreshArticlesList() {
+        try {
+            const result = await articlesInfoList();
+            console.info('Article data:', result);
+            setArticles(result);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
+    React.useEffect(() => {
+        refreshArticlesList()
+    }, []);
+
 
     return (
         <ArticlesLayout.Root>
@@ -36,17 +60,20 @@ export default function ArticlesPage() {
                         justifyContent: 'space-between',
                     }}
                 >
-                    <ArticleList activeIndex={activeIndex} indexChange={handleIndexChange} />
+                    <ArticleList activeIndex={activeIndex} indexChange={handleIndexChange} articleInfoList={articles} />
                 </Box>
                 <Drawer
                     open={open}
                     onClose={() => setOpen(false)}
                 >
-                    <ArticleList activeIndex={activeIndex} indexChange={handleIndexChange} />
+                    <ArticleList activeIndex={activeIndex} indexChange={handleIndexChange} articleInfoList={articles} />
                 </Drawer>
             </ArticlesLayout.SidePane>
             <ArticlesLayout.Content>
-                <ArticleContent activeIndex={activeIndex} />
+                <ArticleContent 
+                    contentLink={articleData?.contentLink}
+                    title={articleData?.title}
+                    author={articleData?.author} />
             </ArticlesLayout.Content>
             <ArticlesLayout.BottomBar>
                 <Box
@@ -63,10 +90,10 @@ export default function ArticlesPage() {
                 >
                     <Box sx={{ alignItems: 'center', gap: 1 }}>
                         <Typography level="title-lg" textColor="text.secondary">
-                        {articleData.title}
+                        {articleData?.title}
                         </Typography>
                         <Typography level="title-sm" textColor="text.tertiary">
-                        {articleData.date}
+                        {articleData?.date}
                         </Typography>
                     </Box>
                     <Button

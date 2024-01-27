@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import {articlesList} from "../services/ApiService"
-
 import Box from '@mui/joy/Box';
 import List from '@mui/joy/List';
 import ListDivider from '@mui/joy/ListDivider';
@@ -9,31 +7,9 @@ import ListItem from '@mui/joy/ListItem';
 import ListItemButton, { listItemButtonClasses } from '@mui/joy/ListItemButton';
 import Typography from '@mui/joy/Typography';
 
-export default function ArticleList({activeIndex = 0, indexChange = (index: number, item: any) => {}}) {
-  const [articles, setArticles] = React.useState([{
-    author: 'Loading...',
-    date: '13 Apr 2022',
-    title: 'Loading...',
-    description: 'Loading...',
-    color: 'danger.500',
-  }]);
+import { ArticleInfo } from "../models/ArticleInfo";
 
-  async function refreshArticlesList() {
-    try {
-      const result = await articlesList();
-      console.error('Article data:', result);
-      setArticles(result);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }
-
-  React.useEffect(() => {
-    indexChange(activeIndex, articles[activeIndex])
-
-    refreshArticlesList()
-  }, []);
-
+export default function ArticleList({activeIndex = 0, articleInfoList = [{} as ArticleInfo], indexChange = (index: number, item: ArticleInfo) => {}}) {
   return (
     <List
       sx={{
@@ -43,7 +19,7 @@ export default function ArticleList({activeIndex = 0, indexChange = (index: numb
         },
       }}
     >
-      {articles.map((item, index) => (
+      {articleInfoList.map((item, index) => (
         <React.Fragment key={index}>
           <ListItem>
             <ListItemButton

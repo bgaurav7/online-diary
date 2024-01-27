@@ -1,72 +1,47 @@
 [
-    {
-      "author": "Alex Jonnold",
-      "date": "21 Oct 2022",
-      "title": "Details for our Yosemite Park hike",
-      "description": "Hello, my friend! So, it seems that we are getting there…",
-      "color": "warning.400"
-    },
-    {
-      "author": "Pete Sand",
-      "date": "06 Jul 2022",
-      "title": "Tickets for our upcoming trip",
-      "description": "Good day, mate! It seems that our tickets just arrived…",
-      "color": "success.400"
-    },
-    {
-      "author": "Kate Gates",
-      "date": "16 May 2022",
-      "title": "Brunch this Saturday?",
-      "description": "Hey! I'll be around the city this weekend, how about a…",
-      "color": "primary.500"
-    },
-    {
-      "author": "John Snow",
-      "date": "10 May 2022",
-      "title": "Exciting News!",
-      "description": "Hello there! I have some exciting news to share with you...",
-      "color": "danger.500"
-    },
-    {
-      "author": "Michael Scott",
-      "date": "13 Apr 2022",
-      "title": "Upcoming Product Launch",
-      "description": "Dear customers and supporters, I am thrilled to announc...",
-      "color": "danger.500"
-    },
-    {
-      "author": "Alex Jonnold",
-      "date": "21 Oct 2022",
-      "title": "Details for our Yosemite Park hike",
-      "description": "Hello, my friend! So, it seems that we are getting there…",
-      "color": "warning.400"
-    },
-    {
-      "author": "Pete Sand",
-      "date": "06 Jul 2022",
-      "title": "Tickets for our upcoming trip",
-      "description": "Good day, mate! It seems that our tickets just arrived…",
-      "color": "success.400"
-    },
-    {
-      "author": "Kate Gates",
-      "date": "16 May 2022",
-      "title": "Brunch this Saturday?",
-      "description": "Hey! I'll be around the city this weekend, how about a…",
-      "color": "primary.500"
-    },
-    {
-      "author": "John Snow",
-      "date": "10 May 2022",
-      "title": "Exciting News!",
-      "description": "Hello there! I have some exciting news to share with you...",
-      "color": "danger.500"
-    },
-    {
-      "author": "Michael Scott",
-      "date": "13 Apr 2022",
-      "title": "Upcoming Product Launch",
-      "description": "Dear customers and supporters, I am thrilled to announc...",
-      "color": "danger.500"
-    }
-  ]
+  {
+    "id": "test1",
+    "author": "Alex Jonnold",
+    "date": "21 Oct 2022",
+    "title": "Details for our Yosemite Park hike",
+    "description": "Hello, my friend! So, it seems that we are getting there…",
+    "color": "warning.400",
+    "contentLink": "/articles/Blog-Sample.md"
+  },
+  {
+    "id": "test2",
+    "author": "Pete Sand",
+    "date": "06 Jul 2022",
+    "title": "Tickets for our upcoming trip",
+    "description": "Good day, mate! It seems that our tickets just arrived…",
+    "color": "success.400",
+    "contentLink": "/articles/Blog-Sample2.md"
+  },
+  {
+    "id": "test3",
+    "author": "Kate Gates",
+    "date": "16 May 2022",
+    "title": "Brunch this Saturday?",
+    "description": "Hey! I'll be around the city this weekend, how about a…",
+    "color": "primary.500",
+    "contentLink": "/articles/Blog-Sample.md"
+  },
+  {
+    "id": "test4",
+    "author": "John Snow",
+    "date": "10 May 2022",
+    "title": "Exciting News!",
+    "description": "Hello there! I have some exciting news to share with you...",
+    "color": "danger.500",
+    "contentLink": "/articles/Blog-Sample2.md"
+  },
+  {
+    "id": "test5",
+    "author": "Michael Scott",
+    "date": "13 Apr 2022",
+    "title": "Upcoming Product Launch",
+    "description": "Dear customers and supporters, I am thrilled to announc...",
+    "color": "danger.500",
+    "contentLink": "/articles/Blog-Sample2.md"
+  }
+]
