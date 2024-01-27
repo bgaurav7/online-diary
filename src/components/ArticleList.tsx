@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import {articlesList} from "../services/ApiService"
+
 import Box from '@mui/joy/Box';
 import List from '@mui/joy/List';
 import ListDivider from '@mui/joy/ListDivider';
@@ -7,102 +9,29 @@ import ListItem from '@mui/joy/ListItem';
 import ListItemButton, { listItemButtonClasses } from '@mui/joy/ListItemButton';
 import Typography from '@mui/joy/Typography';
 
-const data = [
-  {
-    author: 'Alex Jonnold',
-    avatar: 'https://i.pravatar.cc/40?img=3',
-    avatar2x: 'https://i.pravatar.cc/80?img=3',
-    date: '21 Oct 2022',
-    title: 'Details for our Yosemite Park hike',
-    description: 'Hello, my friend! So, it seems that we are getting there…',
-    color: 'warning.400',
-  },
-  {
-    author: 'Pete Sand',
-    avatar: 'https://i.pravatar.cc/40?img=4',
-    avatar2x: 'https://i.pravatar.cc/80?img=4',
-    date: '06 Jul 2022',
-    title: 'Tickets for our upcoming trip',
-    description: 'Good day, mate! It seems that our tickets just arrived…',
-    color: 'success.400',
-  },
-  {
-    author: 'Kate Gates',
-    avatar: 'https://i.pravatar.cc/40?img=5',
-    avatar2x: 'https://i.pravatar.cc/80?img=5',
-    date: '16 May 2022',
-    title: 'Brunch this Saturday?',
-    description: "Hey! I'll be around the city this weekend, how about a…",
-    color: 'primary.500',
-  },
-  {
-    author: 'John Snow',
-    avatar: 'https://i.pravatar.cc/40?img=7',
-    avatar2x: 'https://i.pravatar.cc/80?img=7',
-    date: '10 May 2022',
-    title: 'Exciting News!',
-    description: 'Hello there! I have some exciting news to share with you...',
-    color: 'danger.500',
-  },
-  {
-    author: 'Michael Scott',
-    avatar: 'https://i.pravatar.cc/40?img=8',
-    avatar2x: 'https://i.pravatar.cc/80?img=8',
-    date: '13 Apr 2022',
-    title: 'Upcoming Product Launch',
-    description: 'Dear customers and supporters, I am thrilled to announc...',
-    color: 'danger.500',
-  },
-  {
-    author: 'Alex Jonnold',
-    avatar: 'https://i.pravatar.cc/40?img=3',
-    avatar2x: 'https://i.pravatar.cc/80?img=3',
-    date: '21 Oct 2022',
-    title: 'Details for our Yosemite Park hike',
-    description: 'Hello, my friend! So, it seems that we are getting there…',
-    color: 'warning.400',
-  },
-  {
-    author: 'Pete Sand',
-    avatar: 'https://i.pravatar.cc/40?img=4',
-    avatar2x: 'https://i.pravatar.cc/80?img=4',
-    date: '06 Jul 2022',
-    title: 'Tickets for our upcoming trip',
-    description: 'Good day, mate! It seems that our tickets just arrived…',
-    color: 'success.400',
-  },
-  {
-    author: 'Kate Gates',
-    avatar: 'https://i.pravatar.cc/40?img=5',
-    avatar2x: 'https://i.pravatar.cc/80?img=5',
-    date: '16 May 2022',
-    title: 'Brunch this Saturday?',
-    description: "Hey! I'll be around the city this weekend, how about a…",
-    color: 'primary.500',
-  },
-  {
-    author: 'John Snow',
-    avatar: 'https://i.pravatar.cc/40?img=7',
-    avatar2x: 'https://i.pravatar.cc/80?img=7',
-    date: '10 May 2022',
-    title: 'Exciting News!',
-    description: 'Hello there! I have some exciting news to share with you...',
-    color: 'danger.500',
-  },
-  {
-    author: 'Michael Scott',
-    avatar: 'https://i.pravatar.cc/40?img=8',
-    avatar2x: 'https://i.pravatar.cc/80?img=8',
-    date: '13 Apr 2022',
-    title: 'Upcoming Product Launch',
-    description: 'Dear customers and supporters, I am thrilled to announc...',
-    color: 'danger.500',
-  },
-];
-
 export default function ArticleList({activeIndex = 0, indexChange = (index: number, item: any) => {}}) {
+  const [articles, setArticles] = React.useState([{
+    author: 'Loading...',
+    date: '13 Apr 2022',
+    title: 'Loading...',
+    description: 'Loading...',
+    color: 'danger.500',
+  }]);
+
+  async function refreshArticlesList() {
+    try {
+      const result = await articlesList();
+      console.error('Article data:', result);
+      setArticles(result);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
   React.useEffect(() => {
-    indexChange(activeIndex, data[activeIndex])
+    indexChange(activeIndex, articles[activeIndex])
+
+    refreshArticlesList()
   }, []);
 
   return (
@@ -114,7 +43,7 @@ export default function ArticleList({activeIndex = 0, indexChange = (index: numb
         },
       }}
     >
-      {data.map((item, index) => (
+      {articles.map((item, index) => (
         <React.Fragment key={index}>
           <ListItem>
             <ListItemButton
