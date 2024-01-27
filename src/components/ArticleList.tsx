@@ -23,9 +23,8 @@ export default function ArticleList({activeIndex = 0, articleInfoList = [{} as A
         <React.Fragment key={index}>
           <ListItem>
             <ListItemButton
-              onClick={() => {
-                indexChange(index, item)
-              }}
+              component="a"
+              href={item.id}
               {...(index === activeIndex && {
                 selected: true,
                 color: 'neutral',

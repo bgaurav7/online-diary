@@ -36,6 +36,12 @@ export default function ArticlesPage() {
             const result = await articlesInfoList();
             console.info('Article data:', result);
             setArticles(result);
+
+            const index = result.findIndex((article) => article.id === articleId);
+            if(index >= 0)
+                handleIndexChange(index, result[index])
+            else
+                handleIndexChange(0, result[0])
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -44,7 +50,6 @@ export default function ArticlesPage() {
     React.useEffect(() => {
         refreshArticlesList()
     }, []);
-
 
     return (
         <ArticlesLayout.Root>
