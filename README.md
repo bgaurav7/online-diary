@@ -1,36 +1,22 @@
-# Joy UI - Create React App example in TypeScript
+# Online Diary
 
-`@mui/joy` is still in early development and is not recommended for use in production.
+Personal portfolio website with blog.
 
-## How to use
-
-Download the example [or clone the repo](https://github.com/mui/material-ui):
-
-<!-- #default-branch-switch -->
-
-```bash
-curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/joy-ui-cra-ts
-cd joy-ui-cra-ts
-```
-
-Install it and run:
+## Running Locally
 
 ```bash
 npm install
 npm start
 ```
 
-or:
+## Tech Stack
+- **Framework**: [React.js](https://react.dev)
+- **UI Components**: [Joy UI](https://mui.com/joy-ui/getting-started/)
 
-<!-- #default-branch-switch -->
+## License
 
-[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/master/examples/joy-ui-cra-ts)
+1. You are free to use this code as inspiration.
+2. Please do not copy it directly.
+3. Crediting the author is appreciated.
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/github/mui/material-ui/tree/master/examples/joy-ui-cra-ts)
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation and continue by browsing the [templates](https://mui.com/joy-ui/getting-started/templates/) section.
+Please remove all of my personal information (blog posts, images, etc.)
