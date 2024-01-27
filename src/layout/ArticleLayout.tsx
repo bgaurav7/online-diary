@@ -16,7 +16,6 @@ function Root(props: BoxProps) {
             md: 'minmax(350px, 400px) minmax(600px, 1fr)',
           },
           gridTemplateRows: '1fr',
-          minHeight: '100%',
           overflow: 'hidden'
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
