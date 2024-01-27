@@ -58,7 +58,6 @@ function ExperiencePane(props: BoxProps) {
           md: 4
         },
         height: {
-          xs: 'calc(100vh - 64px - 76px)',
           sm: 'calc(100vh - 64px)',
         },
         overflow: 'auto'
