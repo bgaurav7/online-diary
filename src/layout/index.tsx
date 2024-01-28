@@ -11,6 +11,7 @@ function Root(props: BoxProps) {
           display: 'grid',
           gridTemplateRows: '64px 1fr',
           minHeight: '100vh',
+          pt: 'env(safe-area-inset-top)'
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
       ]}
